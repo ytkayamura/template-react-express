@@ -1,6 +1,9 @@
 # template-react-express
 サーバサイドありのReact、Reduxを使ったごく簡単なアプリ/テンプレート。herokuへのデプロイに対応。
 
+## Heroku App
+https://template-react-express.herokuapp.com/
+
 ## Install
 ```
 $ yarn
