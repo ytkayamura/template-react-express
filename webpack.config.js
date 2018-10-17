@@ -21,7 +21,7 @@ module.exports = (env, argv) => {
     },
 
     optimization: {
-      minimize: true,
+      minimize: (mode === 'development') ? false : true,
     },
 
     devServer: {
