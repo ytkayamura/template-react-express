@@ -1,8 +1,7 @@
-const webpack = require('webpack')
 const path = require('path');
 
 module.exports = (env, argv) => {
-  const mode = argv.mode;
+  const { mode } = argv;
   return {
     entry: './client/index.js',
 
@@ -11,24 +10,23 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(path.join(__dirname, 'public')),
       filename: 'bundle.js',
-      publicPath: '/'
+      publicPath: '/',
     },
 
     module: {
       rules: [
-        { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' }
-      ]
+        { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
+      ],
     },
 
     optimization: {
-      minimize: (mode === 'development') ? false : true,
+      minimize: mode !== 'development',
     },
 
     devServer: {
       proxy: {
-        '/api': 'http://localhost:8081'
+        '/api': 'http://localhost:8081',
       },
     },
   };
 };
-
